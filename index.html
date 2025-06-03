@@ -58,3 +58,28 @@
   </script>
 </body>
 </html>
+
+<!-- Add this to the bottom of your index.html -->
+<div id="chat-container">
+  <iframe src="https://your-chatbot-url.com" frameborder="0"></iframe>
+</div>
+
+<style>
+  #chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  #chat-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
