@@ -2,85 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My AI Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Resume</title>
   <style>
-    body { display: flex; height: 100vh; margin: 0; font-family: sans-serif; }
-    iframe { flex: 1; border: none; }
-    #chatbot {
-      flex: 1;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      padding-bottom: 200px; /* Space for chatbot */
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
       padding: 20px;
-      border-left: 2px solid #ccc;
-      display: flex;
-      flex-direction: column;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
     }
-    #messages {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 10px;
+
+    h1 {
+      color: #2c3e50;
     }
-    input {
-      padding: 10px;
-      font-size: 1rem;
+
+    h2 {
+      color: #34495e;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    /* Chatbot */
+    #chat-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 450px;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    #chat-container iframe {
       width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <iframe src="resume.pdf"></iframe>
-  <div id="chatbot">
-    <h2>Ask Me Anything</h2>
-    <div id="messages"></div>
-    <input type="text" id="userInput" placeholder="Ask a question like 'What are your skills?'" />
+
+  <div class="container">
+    <h1>John Doe</h1>
+    <p>Email: john@example.com | Phone: +123456789 | Location: YourCity</p>
+
+    <h2>Summary</h2>
+    <p>Motivated and creative professional with experience in marketing, technology, and customer engagement...</p>
+
+    <h2>Education</h2>
+    <p><strong>University Name</strong> – B.Sc. in Computer Science (2020)</p>
+
+    <h2>Experience</h2>
+    <p><strong>Marketing Associate</strong> – TechCorp (2021–Present)</p>
+    <ul>
+      <li>Developed digital campaigns that increased engagement by 30%.</li>
+      <li>Collaborated with designers and engineers to launch marketing pages.</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>SEO & SEM</li>
+      <li>Content Writing</li>
+    </ul>
   </div>
 
-  <script>
-    const messages = document.getElementById('messages');
-    const userInput = document.getElementById('userInput');
+  <!-- ✅ Chatbot (Floating) -->
+  <div id="chat-container">
+    <iframe src="https://example-chatbot.com" allow="microphone;"></iframe>
+  </div>
 
-    const fakeAI = (q) => {
-      q = q.toLowerCase();
-      if (q.includes("skills")) return "I have skills in Python, marketing analytics, and AI tools.";
-      if (q.includes("education")) return "I studied Marketing and Data Science at XYZ University.";
-      if (q.includes("experience")) return "I worked as a marketing intern at ABC Corp for 6 months.";
-      return "Sorry, I don't have an answer for that yet.";
-    };
-
-    userInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        const question = userInput.value;
-        messages.innerHTML += `<p><strong>You:</strong> ${question}</p>`;
-        const answer = fakeAI(question);
-        messages.innerHTML += `<p><strong>AI:</strong> ${answer}</p>`;
-        userInput.value = '';
-        messages.scrollTop = messages.scrollHeight;
-      }
-    });
-  </script>
 </body>
 </html>
-
-<!-- Add this to the end of your body -->
-<div id="chat-container">
-  <iframe src="https://your-chatbot-url.com"></iframe>
-</div>
-
-<style>
-  #chat-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 350px;
-    height: 450px;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  #chat-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
-
